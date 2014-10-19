@@ -1,0 +1,11 @@
+@import 'variables';
+
+body {
+  padding: $padding;
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+a {
+  color: #00B7FF;
+}
