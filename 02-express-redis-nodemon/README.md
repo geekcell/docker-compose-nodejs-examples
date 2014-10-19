@@ -1,6 +1,6 @@
 # Express app with Redis and nodemon development server
 
-In this step we'll link a [Redis](http://redis.io/) container to the app from step 01.
+In this step we'll link a [Redis](http://redis.io/) container to the app from [step 01](https://github.com/b00giZm/fig-nodejs-examples/tree/master/01-express-nodemon).
 
 ## Prerequisites
 
@@ -29,4 +29,4 @@ Run `fig build`. It will
 
 Run `fig up` to create and start both `web` and `db` container. The app should then be running on your docker daemon on port 3030 (On OS X you can use `boot2docker ip` to find out the IP address).
 
-You should see a counter on the index page which will be incremented in Redis on every request. See app/routes/index.js to learn how to conect to Redis via enviroment variables exposed to the `web` container.
+You should see a counter on the index page which will be incremented in Redis on every request. See [app/routes/index.js](https://github.com/b00giZm/fig-nodejs-examples/blob/master/02-express-redis-nodemon/app/routes/index.js) to learn how to conect to Redis via [enviroment variables](http://www.fig.sh/env.html) exposed to the `web` container.

@@ -11,9 +11,18 @@ I hope the following real world examples will save you from some headache (like 
 ## Examples
 
 ### Basic skeleton with Express app generator
+[https://github.com/b00giZm/fig-nodejs-examples/tree/master/00-basic-express-generator](https://github.com/b00giZm/fig-nodejs-examples/tree/master/00-basic-express-generator)
+
 ### Express app with nodemon development server
+[https://github.com/b00giZm/fig-nodejs-examples/tree/master/01-express-nodemon](https://github.com/b00giZm/fig-nodejs-examples/tree/master/01-express-nodemon)
+
 ### Express app with Redis and nodemon development server
+[https://github.com/b00giZm/fig-nodejs-examples/tree/master/02-express-redis-nodemon](https://github.com/b00giZm/fig-nodejs-examples/tree/master/02-express-redis-nodemon)
+
 ### Express app with Gulp.js build system
+[https://github.com/b00giZm/fig-nodejs-examples/tree/master/03-express-gulp-watch](https://github.com/b00giZm/fig-nodejs-examples/tree/master/03-express-gulp-watch)
+
+More to come...
 
 ## Maintainer
 
