@@ -2,7 +2,7 @@
 
 ## Motivation
 
-[Fig](http://www.fig.sh/) is an awesome tool for creating isolated development environments using [Docker](http://docker.com) by using simple configurations with [YAML](http://www.yaml.org/). It's clean and easy enough to wrap your head around, even if you are new to Docker. Even though, the official website is lacking some practial, real world examples for getting started with Fig and Nodejs.
+[Fig](http://www.fig.sh/) is an awesome tool for creating isolated development environments with [Docker](http://docker.com) by using simple configurations with [YAML](http://www.yaml.org/). It's clean and easy enough to wrap your head around, even if you are new to Docker. Even though, the official website is lacking some practial, real world examples for getting started with Fig and Nodejs.
 
 If you're like me, you are using a development server like [nodemon](https://github.com/remy/nodemon) that watches all your file changes and restarts your app accordingly. Bringing this workflow over to Fig and Docker is a bit tricky. You can find many Github repositories that aim to show you how to do it, but not one (at least of the ones I found) of them are not suitable for "real world" development. Most of them even require you to rebuild your Dockerfile to reflect file changes - _seriously?!_
 
