@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -L app/bin/www"
+    "start": "gulp --gulpfile app/gulpfile.js"
   },
   "dependencies": {
     "express": "~4.9.0",

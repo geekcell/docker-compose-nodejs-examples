@@ -15,4 +15,4 @@ RUN npm install
 EXPOSE 3000
 EXPOSE 35729
 
-CMD gulp --gulpfile app/gulpfile.js
+CMD ["npm", "start"]
