@@ -36,7 +36,13 @@ Run `fig up` to create and start the container. The app should then be running o
 
 Go ahead and change any SASS stylesheet inside app/public/sass, and watch it autmatically compile to CSS.
 
-## Notes for boot2docker
+## Notes on `grunt-contrib-watch`
+
+For a "real real world" ;) application, you might consider [grunt-simple-watch](https://github.com/unbalanced/grunt-simple-watch) instead of [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-sass), because, at least for my personal tests, it's a lot easier on the CPU when you have a non trivial amount of files to watch.
+
+For more information, please visit the [grunt-simple-watch repo](https://github.com/unbalanced/grunt-simple-watch).
+
+## Notes on boot2docker
 
 It [appears](https://github.com/boot2docker/boot2docker/issues/290) that boot2docker (OS X, Windows) currently does not automatically sync the system clock with the host system after a host resumes from sleep. This becomes a problem due to the way nodemon detects file changes. That might cause it to go bananas, if the clocks on both systems are "too much" out of sync. Until this is fixed, you might use [this workaround](https://github.com/boot2docker/boot2docker/issues/290#issuecomment-62384209) or simply do a manual sync via
 
