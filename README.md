@@ -22,6 +22,9 @@ I hope the following real world examples will save you from some headache (like 
 ### Express app with Gulp.js build system
 [https://github.com/b00giZm/fig-nodejs-examples/tree/master/03-express-gulp-watch](https://github.com/b00giZm/fig-nodejs-examples/tree/master/03-express-gulp-watch)
 
+### Express app with Grunt.js build system
+[https://github.com/b00giZm/fig-nodejs-examples/tree/master/04-express-grunt-watch](https://github.com/b00giZm/fig-nodejs-examples/tree/master/04-express-grunt-watch)
+
 More to come...
 
 ## Maintainer
