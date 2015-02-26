@@ -10,15 +10,14 @@ Install [Docker](https://www.docker.com/) on your system.
 * [Install instructions](https://docs.docker.com/installation/ubuntulinux/) for Ubuntu Linux
 * [Install instructions](https://docs.docker.com/installation/) for other platforms
 
-Install [Fig](http://fig.sh) on your system.
+Install [Docker Compose](http://docs.docker.com/compose/) on your system.
 
-* Homebrew (OS X): `brew install fig`
-* Python/pip: `sudo pip install -U fig`
-* Other: ``curl -L https://github.com/docker/fig/releases/download/1.0.0/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig``
+* Python/pip: `sudo pip install -U docker-compose`
+* Other: ``curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose; chmod +x /usr/local/bin/docker-compose``
 
 ## Setup
 
-Run `fig build`. It will
+Run `docker-compose build`. It will
 
 * install [nodemon](https://github.com/remy/nodemon) globally in your container
 * install all dependencies from the package.json locally
@@ -27,7 +26,7 @@ Run `fig build`. It will
 
 ## Start
 
-Run `fig up` to create and start the container. The app should then be running on your docker daemon on port 3030 (On OS X you can use `boot2docker ip` to find out the IP address).
+Run `docker-compose up` to create and start the container. The app should then be running on your docker daemon on port 3030 (On OS X you can use `boot2docker ip` to find out the IP address).
 
 ## Notes on boot2docker
 
