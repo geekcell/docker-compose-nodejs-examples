@@ -2,13 +2,13 @@
 
 ## Motivation
 
-*Update 02/26/2015: Fig has been renamed Docker Compose*
+*Update 02/26/2015: Fig has been renamed "Docker Compose"*
 
 [Docker Compose](http://docs.docker.com/compose/) is an awesome tool for creating isolated development environments with [Docker](http://docker.com) by using simple configurations with [YAML](http://www.yaml.org/). It's clean and easy enough to wrap your head around, even if you are new to Docker. Even though, the official website is lacking some practial, real world examples for getting started with Docker Compose and Nodejs.
 
-If you're like me, you are using a development server like [nodemon](https://github.com/remy/nodemon) that watches all your file changes and restarts your app accordingly. Bringing this workflow over to Fig and Docker is a bit tricky. You can find many Github repositories that aim to show you how to do it, but not one (at least of the ones I found) of them are not suitable for "real world" development. Most of them even require you to rebuild your Dockerfile to reflect file changes - _seriously?!_
+If you're like me, you are using a development server like [nodemon](https://github.com/remy/nodemon) that watches all your file changes and restarts your app accordingly. Bringing this workflow over to Docker Compose (née Fig) is a bit tricky. You can find many Github repositories that aim to show you how to do it, but not one (at least of the ones I found) of them are not suitable for "real world" development. Most of them even require you to rebuild your Dockerfile to reflect file changes - _seriously?!_
 
-I hope the following real world examples will save you from some headache (like I had) while trying to figure out how to (pragmatically) use Fig and Docker for your Nodejs apps.
+I hope the following real world examples will save you from some headache (like I had) while trying to figure out how to (pragmatically) use Docker Compose for your Nodejs apps.
 
 ## Examples
 
