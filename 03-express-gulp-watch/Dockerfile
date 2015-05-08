@@ -1,4 +1,4 @@
-FROM dockerfile/nodejs
+FROM node:0.10.38
 
 RUN apt-get update -qq && apt-get install -y build-essential
 RUN apt-get install -y ruby
