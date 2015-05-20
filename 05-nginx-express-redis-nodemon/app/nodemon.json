@@ -1,0 +1,6 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js json hjs"
+}

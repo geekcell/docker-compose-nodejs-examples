@@ -27,6 +27,9 @@ I hope the following real world examples will save you from some headache (like 
 ### Express app with Grunt.js build system
 [https://github.com/b00giZm/docker-compose-nodejs-examples/tree/master/04-express-grunt-watch](https://github.com/b00giZm/docker-compose-nodejs-examples/tree/master/04-express-grunt-watch)
 
+### Nginx, Express, Redis and nodemon
+[https://github.com/b00giZm/docker-compose-nodejs-examples/tree/master/05-nginx-express-redis-nodemon](https://github.com/b00giZm/docker-compose-nodejs-examples/tree/master/05-nginx-express-redis-nodemon)
+
 More to come...
 
 ## Maintainer
