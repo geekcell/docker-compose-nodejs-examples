@@ -2,8 +2,8 @@ web:
   build: ./app
   volumes:
     - "app:/src/app"
-  expose:
-    - "3000"
+  ports:
+    - "3030:3000"
   links:
     - "db:redis"
   command: nodemon -L app/bin/www
