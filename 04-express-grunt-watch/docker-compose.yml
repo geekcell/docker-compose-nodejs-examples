@@ -1,7 +1,7 @@
 web:
   build: .
   volumes:
-    - "app:/src/app"
+    - "./app:/src/app"
   ports:
     - "3030:3000"
     - "35729:35729"
