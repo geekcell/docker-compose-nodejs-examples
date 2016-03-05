@@ -3,7 +3,7 @@ web:
   volumes:
     - "./app:/src/app"
   ports:
-    - "3030:3000"
+    - "45000:3000"
   links:
     - "db:redis"
   command: nodemon -L app/bin/www
