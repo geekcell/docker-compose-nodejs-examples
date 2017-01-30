@@ -1,7 +1,7 @@
 FROM node:0.10.38
 
 RUN apt-get update -qq && apt-get install -y build-essential
-RUN apt-get install -y ruby
+RUN apt-get install -y libssl-dev ruby
 RUN gem install sass
 
 RUN mkdir /src
