@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "node_modules/.bin/nodemon index.js"
+  }
+}

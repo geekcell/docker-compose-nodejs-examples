@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+docker-compose build
+
+{{#deps}}
+docker-compose run web npm install --save {{ deps }}
+{{/deps}}
+{{#devDeps}}
+docker-compose run web npm install --save-dev {{ devDeps }}
+{{/devDeps}}
