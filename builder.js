@@ -2,15 +2,14 @@ const fs = require('fs-promise');
 const path = require('path');
 const Mustache = require('mustache');
 const glob = require('glob-promise');
-const Promise = require('bluebird');
-const lodash = require('lodash');
+const uniq = require('lodash.uniq');
 const chalk = require('chalk');
 
 const error = chalk.bold.red;
 
-const logError = (message) => console.error(error(`Error: ${message}`));
+const logError = message => console.error(error(`Error: ${message}`));
 
-const copyTemplate = (src) => (dest = __dirname + '/build') => {
+const copyTemplate = src => (dest = __dirname + '/build') => {
   return fs
     .access(dest, fs.constants.W_OK)
     .then(
@@ -35,7 +34,9 @@ const moduleMappings = {
   minimal  : {deps: [], devDeps: ['nodemon']},
   express  : {
     deps: [
+      'body-parser',
       'express',
+      'lodash.find',
       'mustache',
       'mustache-express'
     ],
@@ -84,8 +85,8 @@ const determineNodeModules = (answers = {}) => {
       }
 
       return {
-        deps: lodash.uniq(acc.deps.concat(moduleMappings[value].deps)),
-        devDeps: lodash.uniq(acc.devDeps.concat(moduleMappings[value].devDeps)),
+        deps: uniq(acc.deps.concat(moduleMappings[value].deps)),
+        devDeps: uniq(acc.devDeps.concat(moduleMappings[value].devDeps)),
       }
     }, {deps: [], devDeps: []}
   );
@@ -96,41 +97,50 @@ const determineNodeModules = (answers = {}) => {
   }
 }
 
-const generateCommonTemplates = (answers) => (dest = __dirname + '/build') => {
+const generateCommonTemplates = answers => (dest = `${__dirname}/build`) => {
   const modules = determineNodeModules(answers);
+  const templateContext = Object.assign({}, answers, modules);
 
-  return glob(__dirname + '/templates/common/**/*.mustache')
-    .then((files) => {
-      const promises = files.map((file) => {
-        const relativePath = path.relative(__dirname + '/templates/common', file.replace('\.mustache', ''));
+  return glob(`${__dirname}/templates/common/**/*.mustache`)
+    .then(files => {
+      const promises = files.map(file => {
+        const relativePath = path.relative(`${__dirname}/templates/common`, file.replace('\.mustache', ''));
         const destPath = `${dest}/${relativePath}`;
 
         return fs
           .ensureDir(path.dirname(destPath))
           .then(() => fs.readFile(file))
-          .then((buf) => {
-            return Mustache.render(buf.toString('utf-8'), modules);
-          })
-          .then((output) => fs.writeFile(destPath, output))
+          .then(buf => Mustache.render(buf.toString('utf-8'), templateContext))
+          .then(output => fs.writeFile(destPath, output))
         ;
       })
 
       return Promise.all(promises);
     })
-    .then(() => glob(dest + '/docker/**/*'))
-    .then((files) => {
+    .then(() => glob(`${dest}/docker/**/*`))
+    .then(files => {
       const promises = files.map((file) => fs.chmod(file, 0751));
 
       return Promise.all(promises);
     })
+    .then(() => undefined)
   ;
 };
 
-const builder = function builder(answers) {
-  return {
-    copyTemplate: copyTemplate(__dirname + '/templates/' + answers.skeleton),
-    generateCommonTemplates: generateCommonTemplates(answers)
+const prepareDatabase = answers => (dest = `${__dirname}/build`) => {
+  if (!answers.database) {
+    return Promise.resolve();
   }
-}
+
+  console.log(dest);
+
+  return fs.copy(`${__dirname}/templates/${answers.database}`, dest);
+};
+
+const builder = answers => ({
+  copyTemplate: copyTemplate(`${__dirname}/templates/${answers.skeleton}`),
+  generateCommonTemplates: generateCommonTemplates(answers),
+  prepareDatabase: prepareDatabase(answers)
+});
 
 module.exports = builder;
