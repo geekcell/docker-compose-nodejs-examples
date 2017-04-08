@@ -1,0 +1,9 @@
+version: '2'
+services:
+  database:
+    image: mariadb
+    environment:
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_PASSWORD=${DATABASE_PASS}
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
