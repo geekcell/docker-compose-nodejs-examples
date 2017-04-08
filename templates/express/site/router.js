@@ -1,9 +1,7 @@
 const express = require('express');
 const router = new express.Router();
 
-const home = (req, res) => {
-  return res.render('index');
-}
+const home = (req, res) => res.render('index');
 
 router.get('/', home);
 
