@@ -6,16 +6,24 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-{{#database}}
     environment:
+{{#database}}
       - DATABASE_HOST=${DATABASE_HOST}
       - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASS=${DATABASE_PASS}
+      - DATABASE_NAME=${DATABASE_NAME}
 {{/database}}
-    command: npm run start-dev
+    command:
 {{#database}}
+      - /docker-wait
+      - db:${DATABASE_PORT}
+      - --timeout=60
+      - --
+{{/database}}
+      - npm run start-dev
     volumes:
       - .:/app
-{{/database}}
 {{#database}}
   db:
     extends:
