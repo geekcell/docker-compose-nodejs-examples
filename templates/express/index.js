@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 
+// Serve static files
+app.use(express.static('public'));
+
 // initialize database
 database.init();
 
