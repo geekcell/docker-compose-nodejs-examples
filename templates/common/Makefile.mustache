@@ -1,0 +1,30 @@
+.DEFAULT_GOAL := all
+.PHONY: all docker-build install start {{#fancyFrontend}}build-js build watch-js watch{{/fancyFrontend}}
+
+all: install {{#fancyFrontend}}build{{/fancyFrontend}} start
+
+docker-build:
+	docker-compose build
+
+install: docker-build
+	{{#deps}}
+	docker-compose run web npm install --save {{ deps }}
+	{{/deps}}
+	{{#devDeps}}
+	docker-compose run web npm install --save-dev {{ devDeps }}
+	{{/devDeps}}
+
+start:
+	docker-compose up
+
+{{#fancyFrontend}}
+build-js:
+	docker-compose run web npm run build-js
+
+build: build-js
+
+watch-js:
+	docker-compose run web npm run watch-js
+
+watch: watch-js
+{{/fancyFrontend}}
