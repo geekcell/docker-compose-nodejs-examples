@@ -38,7 +38,6 @@ const askForFancyFrontend = {
   type: 'list',
   choices: [
     {name: 'God no!', value: null},
-    {name: 'Babel/ES6', value: 'es6'},
     {name: 'React/Redux', value: 'react'},
     {name: 'Vue.js', value: 'vue'}
   ],
