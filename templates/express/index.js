@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const database = require('./database');
 const app = express();
 
-// Use body parser for requests with JSON payloads
+// Use body parser
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 // Configure Pug templates
