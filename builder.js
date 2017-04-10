@@ -51,12 +51,12 @@ const moduleMappings = {
     deps: [
       'react',
       'react-dom',
-      'react-server',
       'redux',
       'react-redux'
     ],
     devDeps: [
-      'babel-cli',
+      'babel-preset-env',
+      'babel-preset-es2015',
       'babel-preset-react',
       'redux-devtools'
     ],
@@ -70,7 +70,14 @@ const moduleMappings = {
       'babel-preset-vue-app'
     ]
   },
-  make     : {deps: [], devDeps: []},
+  make     : {
+    deps: [], 
+    devDeps: [
+      'babelify',
+      'browserify',
+      'watchify'
+    ]
+  },
   gulp     : {deps: [], devDeps: ['gulp']},
   webpack  : {deps: [], devDeps: ['webpack']}
 };
@@ -132,15 +139,40 @@ const prepareDatabase = answers => (dest = `${__dirname}/build`) => {
     return Promise.resolve();
   }
 
-  console.log(dest);
+  return fs
+    .copy(`${__dirname}/templates/${answers.database}`, dest)
+    .then(() => undefined)
+  ;
+};
 
-  return fs.copy(`${__dirname}/templates/${answers.database}`, dest);
+const prepareFancyFrontend = answers => (dest = `${__dirname}/build`) => {
+  if (!answers.fancyFrontend) {
+    return Promise.resolve();
+  }
+
+  return fs
+    .copy(`${__dirname}/templates/${answers.fancyFrontend}`, dest)
+    .then(() => undefined)
+  ;
+};
+
+const prepareBuildTool = answers => (dest = `${__dirname}/build`) => {
+  if (!answers.buildTool) {
+    return Promise.resolve();
+  }
+
+  return fs
+    .copy(`${__dirname}/templates/${answers.buildTool}`, dest)
+    .then(() => undefined)
+  ;
 };
 
 const builder = answers => ({
   copyTemplate: copyTemplate(`${__dirname}/templates/${answers.skeleton}`),
   generateCommonTemplates: generateCommonTemplates(answers),
-  prepareDatabase: prepareDatabase(answers)
+  prepareDatabase: prepareDatabase(answers),
+  prepareFancyFrontend: prepareFancyFrontend(answers),
+  prepareBuildTool: prepareBuildTool(answers)
 });
 
 module.exports = builder;

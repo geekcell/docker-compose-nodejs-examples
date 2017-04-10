@@ -83,6 +83,8 @@ inquirer
       .copyTemplate()
       .then(b.generateCommonTemplates)
       .then(b.prepareDatabase)
+      .then(b.prepareFancyFrontend)
+      .then(b.prepareBuildTool)
       .then(() => {
           console.log(chalk.green.bold('\nAlright! Your app of choice is ready 🎉'));
           console.log(`Please run ${chalk.green.bold('cd build; ./docker/install')} to install dependencies`);
