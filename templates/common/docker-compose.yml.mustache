@@ -6,8 +6,8 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-    environment:
 {{#database}}
+    environment:
       - DATABASE_HOST=${DATABASE_HOST}
       - DATABASE_PORT=${DATABASE_PORT}
       - DATABASE_USER=${DATABASE_USER}
@@ -21,7 +21,9 @@ services:
       - --timeout=60
       - --
 {{/database}}
-      - npm run start-dev
+      - npm
+      - run
+      - start-dev
     volumes:
       - .:/app
 {{#database}}
