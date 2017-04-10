@@ -6,10 +6,8 @@ const app = express();
 // Use body parser for requests with JSON payloads
 app.use(bodyParser.json());
 
-// Configure Mustache templates
-const mustacheExpress = require('mustache-express');
-app.engine('mustache', mustacheExpress());
-app.set('view engine', 'mustache');
+// Configure Pug templates
+app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 
 // initialize database

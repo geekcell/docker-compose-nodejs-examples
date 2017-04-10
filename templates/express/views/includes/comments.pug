@@ -1,0 +1,16 @@
+p.lead Please leave some feedback down in the comments.
+ul.comments
+  each post in posts
+    li(class='comment' id='comment_' + post.id)
+      div
+        h3 #{post.author} #[small wrote a comment]
+        blockquote
+          p= post.body
+form(method='post', action='/')
+  div.form-group
+    label(for='author') Author
+    input(type='text', class='form-control', name='author' id='author', placeholder='Your name')
+  div.form-group
+    label(for='body') Comment
+    textarea(class='form-control', name='body' id='body', placeholder='Tell us something')
+  button(type='submit' class='btn btn-default btn-primary') Submit Comment
