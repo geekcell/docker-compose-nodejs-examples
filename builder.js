@@ -51,6 +51,7 @@ const moduleMappings = {
     deps: [
       'react',
       'react-dom',
+      'react-server',
       'redux',
       'react-redux'
     ],
