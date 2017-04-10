@@ -37,8 +37,7 @@ const moduleMappings = {
       'body-parser',
       'express',
       'lodash.find',
-      'mustache',
-      'mustache-express'
+      'pug',
     ],
     devDeps: [
       'nodemon'

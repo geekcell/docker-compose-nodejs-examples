@@ -1,6 +1,6 @@
 {
   "scripts": {
     "start": "node index.js",
-    "start-dev": "node_modules/.bin/nodemon -e js,mustache index.js"
+    "start-dev": "node_modules/.bin/nodemon -e js,pug index.js"
   }
 }
