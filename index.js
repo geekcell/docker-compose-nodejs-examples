@@ -87,8 +87,7 @@ inquirer
       .then(b.prepareBuildTool)
       .then(() => {
           console.log(chalk.green.bold('\nAlright! Your app of choice is ready 🎉'));
-          console.log(`Please run ${chalk.green.bold('cd build; ./docker/install')} to install dependencies`);
-          console.log(`When done, run ${chalk.green.bold('docker-compose up')} to launch your app`);
+          console.log(`Please run ${chalk.green.bold('cd build; make')} to install, build and launch.`);
       })
     ;
   })
