@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "node_modules/.bin/nodemon -e js,pug index.js",
+    "build-js": "browserify assets/javascripts -o public/js/app.js -t [ babelify ]",
+    "watch-js": "watchify assets/javascripts -o public/js/app.js -t [ babelify ] --verbose"
+  }
+}
