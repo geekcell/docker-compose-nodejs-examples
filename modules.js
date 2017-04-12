@@ -18,8 +18,9 @@ module.exports = {
     deps: [
       'react',
       'react-dom',
+      'react-redux',
       'redux',
-      'react-redux'
+      'redux-thunk',
     ],
     devDeps: [
       'babel-preset-env',
