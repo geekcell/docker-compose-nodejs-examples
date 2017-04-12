@@ -57,7 +57,7 @@ const build = (ctx, dest = './build') => {
   const choices = Object
     .keys(ctx)
     .map(key => ctx[key])
-    .filter(choice => !!choice)
+    .filter(choice => (!!choice && 'polyfills' !== choice))
   ;
   const realDest = `./build/${choices.join('-')}`;
   const tempDest = uniqid(realDest + '-');
