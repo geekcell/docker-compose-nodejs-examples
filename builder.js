@@ -63,7 +63,7 @@ const build = (ctx, dest = './build') => {
   const tempDest = uniqid(realDest + '-');
 
   const [skeleton, ...rest] = choices;
-  const remaining = Array.isArray(rest) ? rest.concat('common') : [rest, 'common'];
+  const remaining = rest.concat('common');
 
   const context = Object.assign(ctx, determineNodeModules(ctx, modules));
 
