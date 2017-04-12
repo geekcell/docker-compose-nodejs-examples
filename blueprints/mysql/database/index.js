@@ -8,12 +8,12 @@ const dbName = process.env.DATABASE_NAME;
 
 let connection;
 
-const init = ({ host, port, user, password, database } = { 
-  host: dbHost, 
+const init = ({ host, port, user, password, database } = {
+  host: dbHost,
   port: dbPort,
 	user: dbUser,
-	password: dbPass, 
-  database: dbName 
+	password: dbPass,
+  database: dbName
 }) => {
 	connection = mysql.createConnection({
 		host,
@@ -70,8 +70,8 @@ const getPosts = () => new Promise((resolve, reject) => {
 
 const getPostById = id => new Promise((resolve, reject) => {
 	connection.query(
-		'SELECT * FROM comments WHERE id = ? LIMIT 1', 
-		[id], 
+		'SELECT * FROM comments WHERE id = ? LIMIT 1',
+		[id],
 		(err, results) => {
 			if (err) {
 				return reject(err);
