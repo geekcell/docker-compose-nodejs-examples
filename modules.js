@@ -1,6 +1,6 @@
 module.exports = {
-  minimal  : {deps: [], devDeps: ['nodemon']},
-  express  : {
+  minimal   : {deps: [], devDeps: ['nodemon']},
+  express   : {
     deps: [
       'body-parser',
       'express',
@@ -11,10 +11,10 @@ module.exports = {
       'nodemon'
     ]
   },
-  mysql    : {deps: ['mysql'], devDeps: []},
-  postgres : {deps: ['pg'], devDeps: []},
-  mongodb  : {deps: ['mongoose'], devDeps: []},
-  react    : {
+  mysql     : {deps: ['mysql'], devDeps: []},
+  postgres  : {deps: ['pg'], devDeps: []},
+  mongodb   : {deps: ['mongoose'], devDeps: []},
+  react     : {
     deps: [
       'react',
       'react-dom',
@@ -38,7 +38,14 @@ module.exports = {
       'babel-preset-vue-app'
     ]
   },
-  make     : {
+  polyfills : {
+    deps: [
+      'promise-polyfill',
+      'whatwg-fetch'
+    ],
+    devDeps: []
+  },
+  make      : {
     deps: [],
     devDeps: [
       'babelify',
@@ -46,6 +53,6 @@ module.exports = {
       'watchify'
     ]
   },
-  gulp     : {deps: [], devDeps: ['gulp']},
-  webpack  : {deps: [], devDeps: ['webpack']}
+  gulp      : {deps: [], devDeps: ['gulp']},
+  webpack   : {deps: [], devDeps: ['webpack']}
 };

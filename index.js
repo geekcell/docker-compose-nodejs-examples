@@ -10,6 +10,7 @@ return inquirer
     questions.askForSkeleton,
     questions.askForDatabase,
     questions.askForFancyFrontend,
+    questions.askForPolyfills,
     questions.askForBuildTool
   ])
   .then(builder.build)

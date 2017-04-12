@@ -47,6 +47,24 @@ const askForFancyFrontend = {
   }
 };
 
+const askForPolyfills = {
+  name: 'polyfills',
+  message: 'Do yo want polyfills for older browsers?',
+  type: 'list',
+  choices: [
+    {name: 'No, f**k \'em!', value: null},
+    {name: 'Yes, please.', value: 'polyfills'}
+  ],
+  when: (currentAnswers) => {
+    const { skeleton, fancyFrontend } = currentAnswers;
+    if ((!!skeleton && 'minimal' === skeleton) || !fancyFrontend) {
+      return false;
+    }
+
+    return true;
+  }
+};
+
 const askForBuildTool = {
   name: 'buildTool',
   message: 'How do you want to build your front end?',
@@ -70,5 +88,6 @@ module.exports = {
   askForSkeleton,
   askForDatabase,
   askForFancyFrontend,
+  askForPolyfills,
   askForBuildTool
 };
