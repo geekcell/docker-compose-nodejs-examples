@@ -1,94 +1,21 @@
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const builder = require('./builder');
+const questions = require('./questions')
 
-const askForSkeleton = {
-  name: 'skeleton',
-  message: 'Which type of Node.js app?',
-  type: 'list',
-  choices: [
-    {name: 'Minimal', value: 'minimal'},
-    {name: 'Express.js', value: 'express'}
-  ],
-};
+const logError = message => console.error(chalk.red.bold(`Error: ${message}`));
 
-const askForDatabase = {
-  name: 'database',
-  message: 'Which Database do you want to use?',
-  type: 'list',
-  choices: [
-    {name: 'None', value: null},
-    {name: 'MySQL', value: 'mysql'},
-    {name: 'PostgreSQL', value: 'postgres'},
-    {name: 'MongoDB', value: 'mongodb'}
-  ],
-  when: (currentAnswers) => {
-    const { skeleton } = currentAnswers;
-    if (!!skeleton && 'minimal' === skeleton) {
-      return false;
-    }
-
-    return true;
-  }
-};
-
-const askForFancyFrontend = {
-  name: 'fancyFrontend',
-  message: 'Do you want a fancy front end?',
-  type: 'list',
-  choices: [
-    {name: 'God no!', value: null},
-    {name: 'React/Redux', value: 'react'},
-    {name: 'Vue.js', value: 'vue'}
-  ],
-  when: (currentAnswers) => {
-    const { skeleton } = currentAnswers;
-    if (!!skeleton && 'minimal' === skeleton) {
-      return false;
-    }
-
-    return true;
-  }
-};
-
-const askForBuildTool = {
-  name: 'buildTool',
-  message: 'How do you want to build your front end?',
-  type: 'list',
-  choices: [
-    {name: 'Makefile', value: 'make'},
-    {name: 'Gulp.js', value: 'gulp'},
-    {name: 'Webpack', value: 'webpack'}
-  ],
-  when: (currentAnswers) => {
-    const { skeleton, fancyFrontend } = currentAnswers;
-    if ((!!skeleton && 'minimal' === skeleton) || !fancyFrontend) {
-      return false;
-    }
-
-    return true;
-  }
-}
-
-inquirer
+return inquirer
   .prompt([
-    askForSkeleton,
-    askForDatabase,
-    askForFancyFrontend,
-    askForBuildTool
+    questions.askForSkeleton,
+    questions.askForDatabase,
+    questions.askForFancyFrontend,
+    questions.askForBuildTool
   ])
-  .then((answers) => {
-    const b = builder(answers);
-    return b
-      .copyTemplate()
-      .then(b.generateCommonTemplates)
-      .then(b.prepareDatabase)
-      .then(b.prepareFancyFrontend)
-      .then(b.prepareBuildTool)
-      .then(() => {
-          console.log(chalk.green.bold('\nAlright! Your app of choice is ready 🎉'));
-          console.log(`Please run ${chalk.green.bold('cd build; make')} to install, build and launch.`);
-      })
-    ;
+  .then(builder.build)
+  .then(buildDir => {
+    console.log(chalk.green.bold('\nAlright! Your app of choice is ready 🎉'));
+    console.log(`Please run ${chalk.green.bold(`cd ${buildDir}; make`)} to install, build and launch.`);
   })
+  .catch(err => logError(err.message))
 ;
