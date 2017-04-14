@@ -8,29 +8,29 @@ const dbName = process.env.DATABASE_NAME;
 
 let pool;
 
-const init = ({ host, port, user, password, database } = { 
-  host: dbHost, 
+const init = ({ host, port, user, password, database } = {
+  host: dbHost,
   port: dbPort,
-	user: dbUser,
-	password: dbPass, 
-  database: dbName 
+  user: dbUser,
+  password: dbPass,
+  database: dbName
 }) => {
-	pool = new pg.Pool({
-		host,
-		port,
-		user,
-		password,
-		database
-	});
+  pool = new pg.Pool({
+    host,
+    port,
+    user,
+    password,
+    database
+  });
 
   // For a real world app, you probably want to check if there were any
   // any exceptions and handle them...
-	createTable();
+  createTable();
 };
 
 const createTableStmt = `
 CREATE TABLE IF NOT EXISTS comments (
-	id serial PRIMARY KEY,
+  id serial PRIMARY KEY,
   author VARCHAR (100) NOT NULL,
   body VARCHAR (50) NOT NULL,
   created_on TIMESTAMP NOT NULL DEFAULT CURRENT_DATE
@@ -39,10 +39,13 @@ CREATE TABLE IF NOT EXISTS comments (
 
 const createTable = () => pool.query(createTableStmt);
 
-const addNewPost = (author, body) => pool.query(
-  'INSERT INTO comments (author, body) VALUES ($1, $2)',
-  [author, body]
-);
+const addNewPost = (author, body) => pool
+  .query(
+    'INSERT INTO comments (author, body) VALUES ($1, $2) RETURNING id',
+    [author, body]
+  )
+  .then(result => result.rows[0].id)
+;
 
 const getPosts = () => pool
   .query('SELECT * FROM comments')
