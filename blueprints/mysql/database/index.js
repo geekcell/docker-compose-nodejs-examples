@@ -22,10 +22,8 @@ const init = ({ host, port, user, password, database } = {
     password,
     database
   });
-
-  // For a real world app, you probably want to check if there were any
-  // any exceptions and handle them...
-  createTable();
+  
+  return createTable();
 };
 
 const createTableStmt = `

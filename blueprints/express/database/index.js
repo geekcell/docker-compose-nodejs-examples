@@ -1,6 +1,6 @@
 const find = require('lodash.find');
 
-const init = () => {}
+const init = () => Promise.resolve();
 
 let commentId = 1;
 
