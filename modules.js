@@ -16,6 +16,7 @@ module.exports = {
   mongodb   : {deps: ['mongoose'], devDeps: []},
   react     : {
     deps: [
+      'babel-cli',
       'react',
       'react-dom',
       'react-redux',
