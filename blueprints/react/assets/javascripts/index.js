@@ -10,7 +10,8 @@ import reducer from './reducers';
 
 bootstrap(window);
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const comments = window.__PRELOADED_STATE__;
+const store = createStore(reducer, { comments }, applyMiddleware(thunk));
 
 store.dispatch(getComments());
 

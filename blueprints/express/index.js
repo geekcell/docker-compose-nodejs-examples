@@ -15,7 +15,7 @@ app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 
 // Custom bootstrapping (database etc.)
-return bootstrap(app)
+bootstrap(app)
   .then(app => {
 
     // Connect routers

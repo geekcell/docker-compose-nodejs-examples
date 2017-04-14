@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "node index.js",
-    "start-dev": "node_modules/.bin/nodemon -e js,pug index.js",
+    "start": "node_modules/.bin/babel-node --presets es2015 index.js",
+    "start-dev": "node_modules/.bin/nodemon --exec node_modules/.bin/babel-node --presets es2015 -e js,pug -i views/includes/comments.pug index.js",
     "build-js": "browserify assets/javascripts -o public/js/app.js -t [ babelify ]",
     "watch-js": "watchify assets/javascripts -o public/js/app.js -t [ babelify ] --verbose"
   }

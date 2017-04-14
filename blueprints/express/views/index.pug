@@ -6,17 +6,20 @@ html
       body {
         padding: 40px;
       }
-      
+
       ul.comments {
         padding: 0;
         list-style: none;
       }
   body
     h1 Hello From Express &amp; Docker.
-    
+
     hr
-    
+
     div#comments-root
       include includes/comments.pug
+
+    script.
+      window.__PRELOADED_STATE__ = !{JSON.stringify(posts).replace(/</g, '\\u003c')};
 
     script(src='/js/app.js')
