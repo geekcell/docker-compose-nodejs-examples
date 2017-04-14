@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const database = require('./database');
+const bootstrap = require('./bootstrap');
 const app = express();
 
 // Use body parser
@@ -14,15 +14,21 @@ app.set('views', __dirname + '/views');
 // Serve static files
 app.use(express.static('public'));
 
-// initialize database
-database.init();
+// Custom bootstrapping (database etc.)
+return bootstrap(app)
+  .then(app => {
 
-// Connect routers
-app.use(require('./site/router'));
-app.use('/api', require('./api/router'));
+    // Connect routers
+    app.use(require('./site/router'));
+    app.use('/api', require('./api/router'));
 
-const port = 3000;
+    const port = 3000;
 
-app.listen(port, () => {
-  console.log(`Express app listening on port ${port}`);
-});
+    app.listen(port, () => {
+      console.log(`Express app listening on port ${port}`);
+    });
+  })
+  .catch(err => {
+    throw err;
+  })
+;

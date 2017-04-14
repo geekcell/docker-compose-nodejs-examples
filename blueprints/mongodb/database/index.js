@@ -4,9 +4,10 @@ mongoose.Promise = global.Promise;
 const dbHost = process.env.DATABASE_HOST;
 const dbPort = process.env.DATABASE_PORT;
 
-const init = ({ host, port } = { host: dbHost, port: dbPort }) => {
-  mongoose.connect(`mongodb://${host}:${port}`);
-};
+const init = ({ host, port } = {
+  host: dbHost,
+  port: dbPort
+}) => mongoose.connect(`mongodb://${host}:${port}`);
 
 // Set up Mongoose model
 const commentSchema = new mongoose.Schema({
