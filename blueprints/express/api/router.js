@@ -5,10 +5,12 @@ const router = new express.Router();
 const createPost = (req, res) => {
   const { author, body } = req.body;
 
+  res.setHeader('Content-Type', 'application/json');
+
   return database
     .addNewPost(author, body)
     .then(
-      post => res.status(201).end(),
+      id => res.status(201).send({ id }),
       err => res.status(500).send({ err: 'Oops, something went wrong!' })
     )
   ;
