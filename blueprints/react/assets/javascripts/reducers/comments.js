@@ -1,11 +1,10 @@
-import uniqid from 'uniqid';
-import { ADD_COMMENT } from '../constants';
+import { ADD_COMMENT, RECEIVE_COMMENTS } from '../constants';
 
 const comment = (state, action) => {
   switch (action.type) {
     case ADD_COMMENT:
       return {
-        id: uniqid(),
+        id: action.id,
         author: action.author,
         body: action.body
       };
@@ -21,6 +20,8 @@ const comments = (state = [], action) => {
         ...state,
         comment(undefined, action)
       ];
+    case RECEIVE_COMMENTS:
+      return action.comments;
     default:
       return state;
   }
