@@ -59,13 +59,18 @@ const build = (ctx, dest = './build') => {
     .map(key => ctx[key])
     .filter(choice => !!choice)
   ;
-  const realDest = `./build/${choices.join('-')}`;
+  const slug = choices.join('-');
+  const realDest = `./build/${slug}`;
   const tempDest = uniqid(realDest + '-');
 
   const [skeleton, ...rest] = choices;
   const remaining = rest.concat('common');
 
-  const context = Object.assign(ctx, determineNodeModules(ctx, modules));
+  const context = Object.assign(
+    ctx,
+    { slug },
+    determineNodeModules(ctx, modules)
+  );
 
   return fs
     .emptyDir(dest)
