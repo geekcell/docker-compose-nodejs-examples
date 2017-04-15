@@ -1,8 +1,10 @@
-# Getting started with ~~Fig~~ Docker Compose and Nodejs
+# Getting started with Docker Compose and Nodejs
+
+**Heads up: Version 2.0 is coming! Read about its development here**
+
+https://medium.com/@b00giZm/building-the-next-version-of-compose-node-86eef3c23d5b
 
 ## Motivation
-
-*Update 02/26/2015: Fig has been renamed "Docker Compose"*
 
 [Docker Compose](http://docs.docker.com/compose/) is an awesome tool for creating isolated development environments with [Docker](http://docker.com) by using simple configurations with [YAML](http://www.yaml.org/). It's clean and easy enough to wrap your head around, even if you are new to Docker. Even though, the official website is lacking some practial, real world examples for getting started with Docker Compose and Nodejs.
 
@@ -44,7 +46,7 @@ Pascal Cremer
 
 > The MIT License (MIT)
 >
-> Copyright (c) 2014-2016 Pascal Cremer
+> Copyright (c) 2014-2017 Pascal Cremer
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal
