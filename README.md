@@ -1,6 +1,6 @@
 # Getting Started with Docker Compose and Node.js
 
-Version 2.0 is coming soon. Read about its development here:
+**Heads up: Version 2.0 is coming! Read about its development here**
 
 https://medium.com/@b00giZm/building-the-next-version-of-compose-node-86eef3c23d5b
 
