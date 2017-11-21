@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -L app/bin/www"
+    "start": "node app/bin/www"
   },
   "dependencies": {
     "express": "~4.9.0",
