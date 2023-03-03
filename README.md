@@ -13,24 +13,13 @@ If you're like us, you're using a development server like [nodemon](https://gith
 ## Examples
 
 ### Basic skeleton with Express app generator
-[https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/00-basic-express-generator](https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/00-basic-express-generator)
+https://github.com/geekcell/docker-compose-nodejs-examples/tree/main/00-basic-express-generator
 
 ### Express app with nodemon development server
-[https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/01-express-nodemon](https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/01-express-nodemon)
+https://github.com/geekcell/docker-compose-nodejs-examples/tree/main/01-express-nodemon
 
 ### Express app with Redis and nodemon development server
-[https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/02-express-redis-nodemon](https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/02-express-redis-nodemon)
-
-### Express app with Gulp.js build system
-[https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/03-express-gulp-watch](https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/03-express-gulp-watch)
-
-### Express app with Grunt.js build system
-[https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/04-express-grunt-watch](https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/04-express-grunt-watch)
-
-### Nginx, Express, Redis and nodemon
-[https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/05-nginx-express-redis-nodemon](https://github.com/geekcell/docker-compose-nodejs-examples/tree/master/05-nginx-express-redis-nodemon)
-
-More to come...
+https://github.com/geekcell/docker-compose-nodejs-examples/tree/main/02-express-redis-nodemon
 
 ## Maintainers
 
