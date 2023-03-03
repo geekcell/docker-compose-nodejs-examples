@@ -1,6 +1,10 @@
-web:
-  build: .
-  volumes:
-    - "./app:/src/app"
-  ports:
-    - "3030:3000"
+version: "3.9"
+
+services:
+  web:
+    build: .
+    user: "node:node"
+    volumes:
+      - "./app:/usr/src/app"
+    ports:
+      - "3000:3000"
