@@ -1,11 +1,16 @@
-web:
-  build: .
-  volumes:
-    - "./app:/src/app"
-  ports:
-    - "3030:3000"
-  links:
-    - "db:redis"
+version: "3.9"
 
-db:
-  image: redis
+services:
+  web:
+    build: .
+    user: "node:node"
+    volumes:
+      - "./app:/usr/src/app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: "redis:7.0.9-bullseye"
+    ports:
+      - "6379:6379"
