@@ -2,7 +2,7 @@ const express = require('express');
 const {createClient} = require("redis");
 
 const app = express();
-const port = 3000;
+const port = process.env.APP_PORT;
 
 const client = createClient({
     url: process.env.DB_URI

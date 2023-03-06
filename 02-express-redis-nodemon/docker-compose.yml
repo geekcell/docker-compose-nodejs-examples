@@ -5,6 +5,7 @@ services:
     build: .
     user: "node:node"
     environment:
+      - APP_PORT=${APP_PORT:-3000}
       - DB_URI=redis://db:6379
     volumes:
       - "./app:/usr/src/app"

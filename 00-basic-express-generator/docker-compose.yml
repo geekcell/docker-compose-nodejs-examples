@@ -4,6 +4,8 @@ services:
   web:
     build: .
     user: "node:node"
+    environment:
+      - APP_PORT=${APP_PORT:-3000}
     volumes:
       - "./app:/usr/src/app"
     ports:
