@@ -1,9 +1,5 @@
 # Getting started with Docker Compose and Nodejs
 
-**Heads up: Version 2.0 is coming! Read about its development here**
-
-https://medium.com/@b00giZm/building-the-next-version-of-compose-node-86eef3c23d5b
-
 ## Motivation
 
 [Docker Compose](http://docs.docker.com/compose/) is an awesome tool for creating isolated development environments with [Docker](http://docker.com) by using simple configurations with [YAML](http://www.yaml.org/). It's clean and easy enough to wrap your head around, even if you are new to Docker.
