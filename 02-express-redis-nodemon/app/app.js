@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 const client = createClient({
-    url: 'redis://db:6379'
+    url: process.env.DB_URI
 });
 
 client.on('error', err => console.log('Redis Client Error', err));

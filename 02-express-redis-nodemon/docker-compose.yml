@@ -4,6 +4,8 @@ services:
   web:
     build: .
     user: "node:node"
+    environment:
+      - DB_URI=redis://db:6379
     volumes:
       - "./app:/usr/src/app"
     ports:
