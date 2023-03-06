@@ -11,6 +11,6 @@ services:
     depends_on:
       - db
   db:
-    image: "redis:7.0.9-bullseye"
+    image: "redis:${IMAGE_VERSION_REDIS:-7.0.9-bullseye}"
     ports:
       - "6379:6379"
