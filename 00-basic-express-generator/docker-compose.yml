@@ -1,6 +1,12 @@
-web:
-  build: .
-  volumes:
-    - "./app:/src/app"
-  ports:
-    - "3030:3000"
+version: "3.9"
+
+services:
+  web:
+    build: .
+    user: "node:node"
+    environment:
+      - APP_PORT=${APP_PORT:-3000}
+    volumes:
+      - "./app:/usr/src/app"
+    ports:
+      - "3000:3000"

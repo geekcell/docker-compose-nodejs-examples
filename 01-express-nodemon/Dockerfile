@@ -1,15 +1,15 @@
-FROM node:0.10.38
+ARG IMAGE_VERSION_BUILD=latest
+ARG IMAGE_VERSION=18.14.2-bullseye-slim
+ARG NODE_ENV=development
 
-RUN mkdir /src
+FROM node:${IMAGE_VERSION_BUILD} AS build
+RUN apt-get update && apt-get install -y --no-install-recommends dumb-init
 
-RUN npm install nodemon -g
-
-WORKDIR /src
-ADD app/package.json /src/package.json
-RUN npm install
-
-ADD app/nodemon.json /src/nodemon.json
-
-EXPOSE 3000
-
-CMD npm start
+FROM node:${IMAGE_VERSION}
+ENV NODE_ENV ${NODE_ENV}
+COPY --from=build /usr/bin/dumb-init /usr/bin/dumb-init
+RUN mkdir /usr/src/app
+RUN chown node:node /usr/src/app
+WORKDIR /usr/src/app
+USER node
+CMD ["dumb-init", "npm", "run", "start"]

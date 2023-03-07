@@ -1,3 +1,6 @@
+**/node_modules
+**/package-lock.json
+
 .sass-cache
 !.gitkeep
 03-express-gulp-watch/app/public/stylesheets/style.css
