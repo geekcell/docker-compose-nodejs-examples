@@ -6,7 +6,7 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
-    "express": "4.18.2",
+    "express": "4.20.0",
     "redis": "4.6.5"
   },
   "devDependencies": {
