@@ -1,5 +1,5 @@
 ARG IMAGE_VERSION_BUILD=latest
-ARG IMAGE_VERSION=18.14.2-bullseye-slim
+ARG IMAGE_VERSION=24.20.0-bullseye-slim
 ARG NODE_ENV=development
 
 FROM node:${IMAGE_VERSION_BUILD} AS build
